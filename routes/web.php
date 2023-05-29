@@ -36,7 +36,7 @@ Route::prefix('toko')->group(function(){
     [TokoController::class,'detail']);
 
     Route::get('/about', 
-    [TokoController::class,'index']);
+    [TokoController::class,'about']);
 
 });
 
