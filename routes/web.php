@@ -21,6 +21,10 @@ Route::get('/Pekan8', function () {
     return view('Pekan8');
 });
 
+Route::get('/pekan9', function () {
+    return view('pekan9');
+});
+
 Route::get('/toko', function () {
     return view('toko');
 });
