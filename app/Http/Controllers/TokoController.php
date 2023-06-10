@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Customer;
 
 class TokoController extends Controller
 {
@@ -41,7 +42,14 @@ class TokoController extends Controller
             'description' => 'required',
        ]);
 
-       product::create($request->all());
-       return redirect()->route('produk.admin')->with('success', 'Product created successfully');
+       customer::create($request->all());
+       return redirect()->route('customer.admin')->with('success', 'Customer created successfully');
     }
+
+    public function customers()
+    {
+        $customer = Customer::all();
+        return view('toko/customers', compact('customer'));
+    }
+    
 }

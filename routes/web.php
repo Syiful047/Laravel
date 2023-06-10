@@ -51,6 +51,9 @@ Route::prefix('toko')->group(function(){
     Route::post('/', 
     [TokoController::class,'store'])->name('produk.store');
 
+    Route::get('/customers', 
+    [TokoController::class,'customers']);
+
 });
 
 
