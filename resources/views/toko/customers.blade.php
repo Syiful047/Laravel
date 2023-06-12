@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Customer</h1>
-<a href=" {{ route('produk.create') }} " class="btn btn-primary mb-3">Add Product</a>
+<a href=" {{ route('cus.create_cus') }} " class="btn btn-primary mb-3">Add Customer</a>
 <table class="table">
     <thead>
       <tr>

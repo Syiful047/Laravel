@@ -42,14 +42,31 @@ class TokoController extends Controller
             'description' => 'required',
        ]);
 
-       customer::create($request->all());
-       return redirect()->route('customer.admin')->with('success', 'Customer created successfully');
+       Product::create($request->all());
+       return redirect()->route('produk.admin')->with('success','Product created successfully');
     }
 
     public function customers()
     {
         $customer = Customer::all();
         return view('toko/customers', compact('customer'));
+    }
+
+    public function create_cus()
+    {
+        return view('toko/create_cus');
+    }
+
+    public function storee(Request $request)
+    {
+        $request->validate([
+            'name'=> 'required',
+            'address'=> 'required',
+            'no_hp'=>'required'
+        ]);
+
+        Customer::create($request->all());
+        return redirect()->route('cus.customers')->with('success','Customer created successfully');
     }
     
 }

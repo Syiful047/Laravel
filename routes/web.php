@@ -52,7 +52,13 @@ Route::prefix('toko')->group(function(){
     [TokoController::class,'store'])->name('produk.store');
 
     Route::get('/customers', 
-    [TokoController::class,'customers']);
+    [TokoController::class,'customers'])->name('cus.customers');
+
+    Route::get('/create_cus', 
+    [TokoController::class,'create_cus'])->name('cus.create_cus');
+
+    Route::post('/', 
+    [TokoController::class,'storee'])->name('cus.storee');
 
 });
 
