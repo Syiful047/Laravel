@@ -32,7 +32,7 @@ Route::get('/toko', function () {
 use App\Http\Controllers\TokoController;
 
 
-Route::prefix('toko')->group(function(){
+    Route::prefix('toko')->group(function(){
     Route::get('', 
     [TokoController::class,'index']);
 
@@ -42,25 +42,34 @@ Route::prefix('toko')->group(function(){
     Route::get('/about', 
     [TokoController::class,'about']);
 
-    Route::get('/admin', 
-    [TokoController::class,'admin'])->name('produk.admin');
 
-    Route::get('/create', 
-    [TokoController::class,'create'])->name('produk.create');
+    Route::group(['middleware' => ['auth']], function(){
 
-    Route::post('/', 
-    [TokoController::class,'store'])->name('produk.store');
+        Route::get('/admin', 
+        [TokoController::class,'admin'])->name('produk.admin');
 
-    Route::get('/customers', 
-    [TokoController::class,'customers'])->name('cus.customers');
+        Route::get('/create', 
+        [TokoController::class,'create'])->name('produk.create');
 
-    Route::get('/create_cus', 
-    [TokoController::class,'create_cus'])->name('cus.create_cus');
+        Route::post('/', 
+        [TokoController::class,'store'])->name('produk.store');
 
-    Route::post('/', 
-    [TokoController::class,'storee'])->name('cus.storee');
+        Route::get('/customers', 
+        [TokoController::class,'customers'])->name('cus.customers');
+
+        Route::get('/create_cus', 
+        [TokoController::class,'create_cus'])->name('cus.create_cus');
+
+        Route::post('/storee', 
+        [TokoController::class,'storee'])->name('cus.storee');
+
+    });
 
 });
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

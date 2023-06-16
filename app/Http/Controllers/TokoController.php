@@ -62,7 +62,7 @@ class TokoController extends Controller
         $request->validate([
             'name'=> 'required',
             'address'=> 'required',
-            'no_hp'=>'required'
+            'no_hp'=>'required',
         ]);
 
         Customer::create($request->all());
