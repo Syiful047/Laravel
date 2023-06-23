@@ -23,8 +23,8 @@
             <td>{{ $product->price }}</td>
             <td>{{ $product->description }}</td>
             <td>
-              <a href="" class="btn btn-primary">Edit</a>
-              <form action="" method="POST" style="display: inline">
+              <a href="{{ route('produk.edit', $product) }}" class="btn btn-primary">Edit</a>
+              <form action="{{ route('produk.destroy', $product) }}" method="POST" style="display: inline">
                   @csrf
                   @method('DELETE')
                   <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" class="btn btn-danger">Delete</button>

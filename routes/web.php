@@ -63,6 +63,16 @@ use App\Http\Controllers\TokoController;
         Route::post('/storee', 
         [TokoController::class,'storee'])->name('cus.storee');
 
+
+        Route::get('/{product}/edit', 
+        [TokoController::class,'edit'])->name('produk.edit');
+
+        Route::put('/{product}', 
+        [TokoController::class,'update'])->name('produk.update');
+
+        Route::delete('/{product}', 
+        [TokoController::class,'destroy'])->name('produk.destroy');
+
     });
 
 });

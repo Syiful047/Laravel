@@ -68,5 +68,29 @@ class TokoController extends Controller
         Customer::create($request->all());
         return redirect()->route('cus.customers')->with('success','Customer created successfully');
     }
+
+
+    public function edit(Product $product)
+    {
+        return view('toko/edit', compact('product'));
+
+    }
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'name'=> 'required',
+            'price'=> 'required',
+            'description'=>'required',
+        ]);
+
+        $product->update($request->all());
+        return redirect()->route('produk.admin')->with('success','Product update successfully');
+    }
+    
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('produk.admin')->with('success','Product delete successfully');
+    }
     
 }
